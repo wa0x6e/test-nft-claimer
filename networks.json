@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "ProxyFactory": {
+      "address": "0x918261f6fba5b48ca2ff28b4abf5d1c3238fa758",
+      "startBlock": 9132768
+    }
+  }
+}
