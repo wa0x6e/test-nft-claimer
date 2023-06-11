@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ProxyFactory
+    network: goerli
+    source:
+      address: "0x918261f6fba5b48ca2ff28b4abf5d1c3238fa758"
+      abi: ProxyFactory
+      startBlock: 9132768
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipTransferred
+        - ProxyDeployed
+      abis:
+        - name: ProxyFactory
+          file: ProxyFactory/abis/ProxyFactory.json
+      eventHandlers:
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: ProxyDeployed(address,address)
+          handler: handleProxyDeployed
+      file: ProxyFactory/ProxyFactory.wasm
